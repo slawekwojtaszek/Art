@@ -8,45 +8,43 @@ import Art3 from "../src/img/art3.jpg";
 import Art7 from "../src/img/art7.jpg";
 import Art4 from "../src/img/art4.jpg";
 import Art5 from "../src/img/art5.jpg";
-
 import Art8 from "../src/img/art8.jpg";
 import Art9 from "../src/img/art9.jpg";
-import SingleArt from "./components/SingleArt";
 
 function App() {
    const [posts, setPosts] = useState([
       {
          id: 1,
-         imgSrc: Art1,
-         title: "Elo",
-         type: "photo",
+         imgSrc: Art6,
+         title: "fota1",
+         type: "art",
       },
       {
-         id: 6,
-         imgSrc: Art2,
-         title: "elo",
+         id: 2,
+         imgSrc: Art3,
+         title: "fota2",
          type: "photo",
       },
       {
          id: 3,
          imgSrc: Art3,
-         title: "Elo",
+         title: "fota3",
          type: "photo",
-      },
-      {
-         id: 2,
-         imgSrc: Art6,
-         title: "Prezes",
-         type: "art",
       },
       {
          id: 4,
-         imgSrc: Art4,
-         title: "Elo",
-         type: "photo",
+         imgSrc: Art3,
+         title: "fota4",
+         type: "art",
       },
       {
          id: 5,
+         imgSrc: Art4,
+         title: "fota5",
+         type: "photo",
+      },
+      {
+         id: 6,
          imgSrc: Art5,
          title: "Elo",
          type: "photo",
@@ -54,7 +52,7 @@ function App() {
 
       {
          id: 7,
-         imgSrc: Art7,
+         imgSrc: Art5,
          title: "Elo",
          type: "photo",
       },
@@ -76,155 +74,173 @@ function App() {
          title: "Elo",
          type: "photo",
       },
-      {
-         id: 11,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 12,
-         imgSrc: Art8,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 13,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 14,
-         imgSrc: Art7,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 15,
-         imgSrc: Art8,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 16,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 17,
-         imgSrc: Art8,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 18,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 19,
-         imgSrc: Art8,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 20,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 21,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 22,
-         imgSrc: Art6,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 23,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 24,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
+      // {
+      //    id: 11,
+      //    imgSrc: Art9,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 12,
+      //    imgSrc: Art8,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 13,
+      //    imgSrc: Art9,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 14,
+      //    imgSrc: Art7,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 15,
+      //    imgSrc: Art8,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 16,
+      //    imgSrc: Art9,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 17,
+      //    imgSrc: Art8,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 18,
+      //    imgSrc: Art9,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 19,
+      //    imgSrc: Art8,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 20,
+      //    imgSrc: Art9,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 21,
+      //    imgSrc: Art9,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 22,
+      //    imgSrc: Art6,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 23,
+      //    imgSrc: Art9,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
+      // {
+      //    id: 24,
+      //    imgSrc: Art9,
+      //    title: "Elo",
+      //    type: "photo",
+      // },
    ]);
 
+   /* States */
    const [modal, setModal] = useState(false);
    const [selectecImg, setselectedImg] = useState("");
-   const [selectedId, setselectedId] = useState("");
    const [selectedTitle, setselectedTitle] = useState("");
+   const [selectedType, setSelectedType] = useState();
+   const [postsPerPage, setPostsPerPage] = useState(5);
 
-   // const [counter, setCounter] = useState(5);
+   const [isPhoto, setisPhoto] = useState("photo");
+   const [isArt, setisArt] = useState("art");
 
-   const [currentPage, setCurrentPage] = useState(1);
-   const [postsPerPage, setPostsPerPage] = useState(7);
+   const numberOfPostsToDisplay = posts.slice(0, postsPerPage);
 
-   const indexOfLastPost = currentPage * postsPerPage;
-   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+   /* Functions */
 
-   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
-   const [isPhoto, setisPhoto] = useState(true);
-   const [isArt, setisArt] = useState(true);
-
-   const getImg = (imgSrc, id, title, type) => {
+   const clickedPhoto = (imgSrc, id, title, type) => {
       document.body.style.overflow = "hidden";
 
       setselectedImg(imgSrc);
       setModal((modal) => true);
-      setselectedId((selectedId) => id);
       setselectedTitle((selectedTitle) => title);
+      setSelectedType((selectedType) => type);
    };
 
-   const swtichOff = () => {
+   const switchModalOff = () => {
       document.body.style.overflow = "auto";
       setModal((modal) => false);
    };
 
-   const setType = (type) => {
-      if (isArt && !isPhoto) {
-         setisArt(true);
-         setisPhoto(false);
-      }
+   const setArt = () => {
+      setisArt((isArt) => "art");
+      setisPhoto((isPhoto) => null);
    };
 
-   const showMore = () => {
+   const setPhoto = () => {
+      setisArt((isArt) => null);
+      setisPhoto((isPhoto) => "photo");
+   };
+
+   const showMorePosts = () => {
       setPostsPerPage((postsPerPage) => postsPerPage + 5);
-      console.log(postsPerPage);
    };
 
    return (
       <div className='App'>
          <div className={modal ? "modal open fade-in-fwd" : "modal"}>
-            <div className='x' onClick={swtichOff}>
+            <div className='x' onClick={switchModalOff}>
                X
             </div>
             <div className='photo'>
                <h1>{selectedTitle}</h1>
+               <h1>{selectedType}</h1>
                <div className='inside'>
                   <img src={selectecImg} alt='' />
                </div>
             </div>
          </div>
-         <button onClick={setType}>Art</button>
-         <button onClick={setType}>Photo</button>
-         <button onClick={showMore}>Add More Posts</button>
+         <div className='button-container'>
+            <div className='btn' onClick={setArt}>
+               Art
+            </div>
+            <div className='btn' onClick={setPhoto}>
+               Photo
+            </div>
+         </div>
 
-         <SinglePhoto posts={currentPosts} getImg={getImg} />
-         <SingleArt posts={currentPosts} getImg={getImg} />
+         <SinglePhoto
+            posts={numberOfPostsToDisplay}
+            clickedPhoto={clickedPhoto}
+            type={selectedType}
+            isPhoto={isPhoto}
+            isArt={isArt}
+         />
+         {/* <SingleArt posts={numberOfPostsToDisplay} clickedPhoto={clickedPhoto} /> */}
+
+         <div className='show-more-posts'>
+            <div className='btn' onClick={showMorePosts}>
+               Show More
+            </div>
+         </div>
+
+         <footer>COPYCOPY</footer>
       </div>
    );
 }
