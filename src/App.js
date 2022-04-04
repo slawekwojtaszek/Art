@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import SinglePhoto from "./components/SinglePhoto";
+import Button from "./components/Button";
+import { IoFilter } from "react-icons/io5";
+import { BsFillFilterSquareFill } from "react-icons/bs";
 import "./App.css";
 import Art1 from "../src/img/art1.jpg";
 import Art2 from "../src/img/art2.jpg";
@@ -10,6 +13,7 @@ import Art4 from "../src/img/art4.jpg";
 import Art5 from "../src/img/art5.jpg";
 import Art8 from "../src/img/art8.jpg";
 import Art9 from "../src/img/art9.jpg";
+import Navbar from "./components/Navbar";
 
 function App() {
    const [posts, setPosts] = useState([
@@ -162,6 +166,7 @@ function App() {
 
    /* States */
    const [modal, setModal] = useState(false);
+   const [isFilterOn, setIsFilterOn] = useState(false);
    const [selectecImg, setselectedImg] = useState("");
    const [selectedTitle, setselectedTitle] = useState("");
    const [selectedCategory, setselectedCategory] = useState("all");
@@ -178,12 +183,16 @@ function App() {
       setselectedImg(imgSrc);
       setModal((modal) => true);
       setselectedTitle((selectedTitle) => title);
-      setselectedCategory((selectedCategory) => type);
    };
 
    const switchModalOff = () => {
       document.body.style.overflow = "auto";
       setModal((modal) => false);
+   };
+
+   const switchFilterOnOff = () => {
+      setIsFilterOn((isFilterOn) => !isFilterOn);
+      console.log(isFilterOn);
    };
 
    const setCategory = (type) => {
@@ -197,6 +206,7 @@ function App() {
 
    return (
       <div className='App'>
+         <Navbar />
          <div className={modal ? "modal open fade-in-fwd" : "modal"}>
             <div className='x' onClick={switchModalOff}>
                X
@@ -209,16 +219,32 @@ function App() {
                </div>
             </div>
          </div>
-         <div className='button-container'>
-            <div className='btn' onClick={() => setCategory("art")}>
-               Art
-            </div>
-            <div className='btn' onClick={() => setCategory("photo")}>
-               Photo
-            </div>
-            <div className='btn' onClick={() => setCategory("black&white")}>
-               BlackWhite
-            </div>
+         <div className='icon'>
+            <BsFillFilterSquareFill onClick={switchFilterOnOff} />
+         </div>
+         <div
+            className={
+               isFilterOn
+                  ? "button-container on swing-in-top-fwd "
+                  : "button-container"
+            }>
+            <Button title={"Art"} onClick={setCategory} category={"art"} />
+            <Button title={"Photo"} onClick={setCategory} category={"photo"} />
+            <Button
+               title={"B&W"}
+               onClick={setCategory}
+               category={"black&white"}
+            />
+            <Button
+               title={"Drawing"}
+               onClick={setCategory}
+               category={"black&white"}
+            />
+            <Button
+               title={"Drawing"}
+               onClick={setCategory}
+               category={"black&white"}
+            />
          </div>
          <SinglePhoto
             posts={numberOfPostsToDisplay}
@@ -226,7 +252,7 @@ function App() {
             selectedCategory={selectedCategory}
          />{" "}
          <div className='show-more-posts'>
-            <div className='btn' onClick={showMorePosts}>
+            <div className='btnX' onClick={showMorePosts}>
                Show More
             </div>
          </div>

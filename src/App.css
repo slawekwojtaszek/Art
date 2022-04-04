@@ -4,6 +4,13 @@
    box-sizing: border-box;
 }
 
+.icon {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 3rem;
+}
+
 .main-container {
    margin: 0 auto;
    display: grid;
@@ -19,6 +26,7 @@ img {
    border-radius: 10px;
    transition: 0.4s ease;
    z-index: 10;
+   cursor: pointer;
 }
 
 .img-container {
@@ -27,6 +35,12 @@ img {
    margin: 0.5rem;
    width: 100%;
    transition: 0.4s ease;
+   box-shadow: 1px 1px 10px 2px rgb(236, 236, 236);
+   border-radius: 10px;
+}
+
+.main {
+   margin: 0.5rem;
 }
 
 .modal {
@@ -66,41 +80,6 @@ img {
    align-items: center;
    flex-direction: column;
    /* border: 1px solid red; */
-}
-
-button {
-   width: 50%;
-   margin: 1rem;
-}
-
-.button-container {
-   margin: 2rem auto;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 100%;
-   /* border: 2px solid red; */
-}
-
-.button-container .btn,
-.show-more-posts .btn {
-   display: flex;
-   text-align: center;
-   justify-content: center;
-   align-items: center;
-   padding: 0.5rem 1rem;
-   width: 10vh;
-   height: 50%;
-   margin: 1rem;
-   background-color: rgb(0, 94, 255);
-   color: white;
-   font-weight: 700;
-   font-size: 0.9rem;
-   border-radius: 7px;
-}
-
-.showmore .btn {
-   width: 30%;
 }
 
 /* .photo,
