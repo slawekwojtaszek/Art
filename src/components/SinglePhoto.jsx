@@ -1,29 +1,45 @@
 import React from "react";
 import "../App.css";
 
-function SingleImage({ posts, clickedPhoto, isPhoto, isArt, selectedType }) {
+function SingleImage({ posts, selectedPhoto, selectedCategory }) {
    return (
       <div className='main-container art'>
          {posts.map((item, id) => (
-            <div
-               className='img-container'
-               onClick={() =>
-                  clickedPhoto(item.imgSrc, item.id, item.title, item.type)
-               }
-               key={id}>
-               {isArt === item.type ? (
-                  <>
-                     <h1>Art</h1>
+            <>
+               {selectedCategory === "all" ? (
+                  <div
+                     className='img-container'
+                     onClick={() =>
+                        selectedPhoto(
+                           item.imgSrc,
+                           item.id,
+                           item.title,
+                           item.type
+                        )
+                     }
+                     key={id}>
+                     <h1>{item.type}</h1>
                      <img src={item.imgSrc} alt='' />
-                  </>
+                  </div>
                ) : null}
-               {isPhoto === item.type ? (
-                  <>
-                     <h1>Photo</h1>
+
+               {item.type === selectedCategory ? (
+                  <div
+                     className='img-container'
+                     onClick={() =>
+                        selectedPhoto(
+                           item.imgSrc,
+                           item.id,
+                           item.title,
+                           item.type
+                        )
+                     }
+                     key={id}>
+                     <h1>{item.type}</h1>
                      <img src={item.imgSrc} alt='' />
-                  </>
+                  </div>
                ) : null}
-            </div>
+            </>
          ))}
       </div>
    );

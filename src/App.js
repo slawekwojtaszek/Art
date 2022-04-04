@@ -17,7 +17,7 @@ function App() {
          id: 1,
          imgSrc: Art6,
          title: "fota1",
-         type: "art",
+         type: "black&white",
       },
       {
          id: 2,
@@ -33,7 +33,7 @@ function App() {
       },
       {
          id: 4,
-         imgSrc: Art3,
+         imgSrc: Art6,
          title: "fota4",
          type: "art",
       },
@@ -70,117 +70,115 @@ function App() {
       },
       {
          id: 10,
+         imgSrc: Art6,
+         title: "Elo",
+         type: "art",
+      },
+      {
+         id: 11,
+         imgSrc: Art9,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 12,
          imgSrc: Art8,
          title: "Elo",
          type: "photo",
       },
-      // {
-      //    id: 11,
-      //    imgSrc: Art9,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 12,
-      //    imgSrc: Art8,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 13,
-      //    imgSrc: Art9,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 14,
-      //    imgSrc: Art7,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 15,
-      //    imgSrc: Art8,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 16,
-      //    imgSrc: Art9,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 17,
-      //    imgSrc: Art8,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 18,
-      //    imgSrc: Art9,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 19,
-      //    imgSrc: Art8,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 20,
-      //    imgSrc: Art9,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 21,
-      //    imgSrc: Art9,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 22,
-      //    imgSrc: Art6,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 23,
-      //    imgSrc: Art9,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
-      // {
-      //    id: 24,
-      //    imgSrc: Art9,
-      //    title: "Elo",
-      //    type: "photo",
-      // },
+      {
+         id: 13,
+         imgSrc: Art9,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 14,
+         imgSrc: Art7,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 15,
+         imgSrc: Art8,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 16,
+         imgSrc: Art9,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 17,
+         imgSrc: Art6,
+         title: "Elo",
+         type: "art",
+      },
+      {
+         id: 18,
+         imgSrc: Art9,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 19,
+         imgSrc: Art8,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 20,
+         imgSrc: Art9,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 21,
+         imgSrc: Art9,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 22,
+         imgSrc: Art6,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 23,
+         imgSrc: Art9,
+         title: "Elo",
+         type: "photo",
+      },
+      {
+         id: 24,
+         imgSrc: Art6,
+         title: "Elo",
+         type: "art",
+      },
    ]);
 
    /* States */
    const [modal, setModal] = useState(false);
    const [selectecImg, setselectedImg] = useState("");
    const [selectedTitle, setselectedTitle] = useState("");
-   const [selectedType, setSelectedType] = useState();
-   const [postsPerPage, setPostsPerPage] = useState(5);
+   const [selectedCategory, setselectedCategory] = useState("all");
 
-   const [isPhoto, setisPhoto] = useState("photo");
-   const [isArt, setisArt] = useState("art");
+   const [postsPerPage, setPostsPerPage] = useState(10);
 
    const numberOfPostsToDisplay = posts.slice(0, postsPerPage);
 
    /* Functions */
 
-   const clickedPhoto = (imgSrc, id, title, type) => {
+   const selectedPhoto = (imgSrc, id, title, type) => {
       document.body.style.overflow = "hidden";
 
       setselectedImg(imgSrc);
       setModal((modal) => true);
       setselectedTitle((selectedTitle) => title);
-      setSelectedType((selectedType) => type);
+      setselectedCategory((selectedCategory) => type);
    };
 
    const switchModalOff = () => {
@@ -188,14 +186,9 @@ function App() {
       setModal((modal) => false);
    };
 
-   const setArt = () => {
-      setisArt((isArt) => "art");
-      setisPhoto((isPhoto) => null);
-   };
-
-   const setPhoto = () => {
-      setisArt((isArt) => null);
-      setisPhoto((isPhoto) => "photo");
+   const setCategory = (type) => {
+      setselectedCategory((selectedCategory) => type);
+      console.log(selectedCategory);
    };
 
    const showMorePosts = () => {
@@ -210,36 +203,33 @@ function App() {
             </div>
             <div className='photo'>
                <h1>{selectedTitle}</h1>
-               <h1>{selectedType}</h1>
+               <h1>{selectedCategory}</h1>
                <div className='inside'>
                   <img src={selectecImg} alt='' />
                </div>
             </div>
          </div>
          <div className='button-container'>
-            <div className='btn' onClick={setArt}>
+            <div className='btn' onClick={() => setCategory("art")}>
                Art
             </div>
-            <div className='btn' onClick={setPhoto}>
+            <div className='btn' onClick={() => setCategory("photo")}>
                Photo
             </div>
+            <div className='btn' onClick={() => setCategory("black&white")}>
+               BlackWhite
+            </div>
          </div>
-
          <SinglePhoto
             posts={numberOfPostsToDisplay}
-            clickedPhoto={clickedPhoto}
-            type={selectedType}
-            isPhoto={isPhoto}
-            isArt={isArt}
-         />
-         {/* <SingleArt posts={numberOfPostsToDisplay} clickedPhoto={clickedPhoto} /> */}
-
+            selectedPhoto={selectedPhoto}
+            selectedCategory={selectedCategory}
+         />{" "}
          <div className='show-more-posts'>
             <div className='btn' onClick={showMorePosts}>
                Show More
             </div>
          </div>
-
          <footer>COPYCOPY</footer>
       </div>
    );
