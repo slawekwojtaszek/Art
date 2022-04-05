@@ -4,189 +4,115 @@ import Button from "./components/Button";
 import { IoFilter } from "react-icons/io5";
 import { BsFillFilterSquareFill } from "react-icons/bs";
 import "./App.css";
-import Art1 from "../src/img/art1.jpg";
-import Art2 from "../src/img/art2.jpg";
-import Art6 from "../src/img/art6.jpg";
-import Art3 from "../src/img/art3.jpg";
-import Art7 from "../src/img/art7.jpg";
-import Art4 from "../src/img/art4.jpg";
-import Art5 from "../src/img/art5.jpg";
-import Art8 from "../src/img/art8.jpg";
-import Art9 from "../src/img/art9.jpg";
+import "./css/Modal.css";
+
+import Malta1 from "../src/img/malta/1.jpg";
+import Malta2 from "../src/img/malta/2.jpeg";
+import Malta3 from "../src/img/malta/3.jpeg";
+import Malta4 from "../src/img/malta/4.jpeg";
+import Malta5 from "../src/img/malta/5.jpeg";
+import Malta6 from "../src/img/malta/6.jpeg";
+import Malta7 from "../src/img/malta/7.jpeg";
+import Malta8 from "../src/img/malta/8.jpeg";
+import Malta9 from "../src/img/malta/9.jpeg";
+import Malta10 from "../src/img/malta/10.jpeg";
+
 import Navbar from "./components/Navbar";
 
 function App() {
    const [posts, setPosts] = useState([
       {
          id: 1,
-         imgSrc: Art6,
-         title: "fota1",
-         type: "black&white",
+         imgSrc: Malta2,
+         title: "Havana, 1973",
+         type: "malta",
+         country: "Malta",
       },
       {
          id: 2,
-         imgSrc: Art3,
-         title: "fota2",
-         type: "photo",
+         imgSrc: Malta1,
+         title: "Street Art",
+         type: "malta",
+         country: "Malta",
       },
       {
          id: 3,
-         imgSrc: Art3,
-         title: "fota3",
-         type: "photo",
+         imgSrc: Malta3,
+         title: "Stairs to Heaven",
+         type: "malta",
       },
       {
          id: 4,
-         imgSrc: Art6,
-         title: "fota4",
-         type: "art",
+         imgSrc: Malta4,
+         title: "Do Not Stop!",
+         type: "malta",
       },
       {
          id: 5,
-         imgSrc: Art4,
-         title: "fota5",
-         type: "photo",
+         imgSrc: Malta5,
+         title: "Blue",
+         type: "malta",
       },
       {
          id: 6,
-         imgSrc: Art5,
-         title: "Elo",
-         type: "photo",
+         imgSrc: Malta6,
+         title: "Where Are You?",
+         type: "malta",
       },
-
       {
          id: 7,
-         imgSrc: Art5,
-         title: "Elo",
-         type: "photo",
+         imgSrc: Malta7,
+         title: "Warmth",
+         type: "malta",
       },
       {
          id: 8,
-         imgSrc: Art8,
-         title: "Elo",
-         type: "photo",
+         imgSrc: Malta8,
+         title: "King's Courtyard",
+         type: "malta",
       },
       {
          id: 9,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
+         imgSrc: Malta9,
+         title: "Left Behind",
+         type: "malta",
       },
       {
          id: 10,
-         imgSrc: Art6,
-         title: "Elo",
-         type: "art",
-      },
-      {
-         id: 11,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 12,
-         imgSrc: Art8,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 13,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 14,
-         imgSrc: Art7,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 15,
-         imgSrc: Art8,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 16,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 17,
-         imgSrc: Art6,
-         title: "Elo",
-         type: "art",
-      },
-      {
-         id: 18,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 19,
-         imgSrc: Art8,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 20,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 21,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 22,
-         imgSrc: Art6,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 23,
-         imgSrc: Art9,
-         title: "Elo",
-         type: "photo",
-      },
-      {
-         id: 24,
-         imgSrc: Art6,
-         title: "Elo",
-         type: "art",
+         imgSrc: Malta10,
+         title: "Dog Days",
+         type: "malta",
       },
    ]);
+
+   // const [currentId, setCurrentId] = useState();
+
+   // const [counter, setCounter] = useState();
 
    /* States */
    const [modal, setModal] = useState(false);
    const [isFilterOn, setIsFilterOn] = useState(false);
    const [selectecImg, setselectedImg] = useState("");
    const [selectedTitle, setselectedTitle] = useState("");
+   const [selectedCountry, setSelectedCountry] = useState("");
    const [selectedCategory, setselectedCategory] = useState("all");
 
-   const [postsPerPage, setPostsPerPage] = useState(10);
+   const [postsPerPage, setPostsPerPage] = useState(7);
 
    const numberOfPostsToDisplay = posts.slice(0, postsPerPage);
 
    /* Functions */
 
-   const selectedPhoto = (imgSrc, id, title, type) => {
-      document.body.style.overflow = "hidden";
-
+   const selectedPhoto = (imgSrc, id, title, type, country) => {
+      document.body.style.overflowY = "hidden";
       setselectedImg(imgSrc);
       setModal((modal) => true);
       setselectedTitle((selectedTitle) => title);
+      setSelectedCountry((selectedCountry) => country);
    };
 
    const switchModalOff = () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
       setModal((modal) => false);
    };
 
@@ -203,6 +129,11 @@ function App() {
    const showMorePosts = () => {
       setPostsPerPage((postsPerPage) => postsPerPage + 5);
    };
+   console.log(numberOfPostsToDisplay);
+
+   const movePage = (img) => {
+      console.log(img);
+   };
 
    return (
       <div className='App'>
@@ -211,12 +142,16 @@ function App() {
             <div className='x' onClick={switchModalOff}>
                X
             </div>
-            <div className='photo'>
+
+            <div className='info'>
                <h1>{selectedTitle}</h1>
-               <h1>{selectedCategory}</h1>
-               <div className='inside'>
-                  <img src={selectecImg} alt='' />
+               <div className='arrow' onClick={() => movePage(selectecImg)}>
+                  +++
                </div>
+               {/* <h2>Country: {selectedCountry}</h2> */}
+            </div>
+            <div className='photo'>
+               <img src={selectecImg} alt='' />
             </div>
          </div>
          <div className='icon'>
@@ -228,22 +163,35 @@ function App() {
                   ? "button-container on swing-in-top-fwd "
                   : "button-container"
             }>
-            <Button title={"Art"} onClick={setCategory} category={"art"} />
-            <Button title={"Photo"} onClick={setCategory} category={"photo"} />
+            <Button
+               title={"Art"}
+               onClick={setCategory}
+               category={"art"}
+               className={"btn"}
+            />
+            <Button
+               title={"Photo"}
+               onClick={setCategory}
+               category={"photo"}
+               className={"btn"}
+            />
             <Button
                title={"B&W"}
                onClick={setCategory}
                category={"black&white"}
+               className={"btn"}
             />
             <Button
                title={"Drawing"}
                onClick={setCategory}
                category={"black&white"}
+               className={"btn"}
             />
             <Button
-               title={"Drawing"}
+               title={"Malta"}
                onClick={setCategory}
-               category={"black&white"}
+               category={"malta"}
+               className={"btn"}
             />
          </div>
          <SinglePhoto
@@ -252,9 +200,11 @@ function App() {
             selectedCategory={selectedCategory}
          />{" "}
          <div className='show-more-posts'>
-            <div className='btnX' onClick={showMorePosts}>
-               Show More
-            </div>
+            <Button
+               className={"btn show"}
+               title={"Show More"}
+               onClick={showMorePosts}
+            />
          </div>
          <footer>COPYCOPY</footer>
       </div>

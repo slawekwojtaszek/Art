@@ -30,12 +30,34 @@ button {
    font-weight: 700;
    font-size: 1rem;
    border-radius: 3px;
+   user-select: none;
 }
 
 .btnX {
    background-color: red;
    width: 20%;
    padding: 2rem;
+}
+
+.btn.show {
+   background-color: rgb(0, 85, 255);
+   width: 30%;
+   padding: 1rem;
+   border-radius: 8px;
+   transition: 0.3s;
+}
+
+.btn.show:hover {
+   background-color: rgb(5, 67, 189);
+}
+
+/* Show Button */
+
+.show-more-posts {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 1rem;
 }
 
 /* ----------------------------------------------

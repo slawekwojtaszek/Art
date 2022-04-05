@@ -1,11 +1,11 @@
 import React from "react";
 import "../css/Button.css";
 
-function Button({ title, onClick, category }) {
+function Button({ title, onClick, category, className }) {
    return (
       <>
          {" "}
-         <div className='btn' onClick={() => onClick(category)}>
+         <div className={className} onClick={() => onClick(category)}>
             {title}
          </div>
       </>

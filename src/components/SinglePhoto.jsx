@@ -5,7 +5,7 @@ function SingleImage({ posts, selectedPhoto, selectedCategory }) {
    return (
       <div className='main-container art'>
          {posts.map((item, id) => (
-            <div className='main' key={id}>
+            <>
                {selectedCategory === "all" ? (
                   <div
                      className='img-container'
@@ -14,11 +14,14 @@ function SingleImage({ posts, selectedPhoto, selectedCategory }) {
                            item.imgSrc,
                            item.id,
                            item.title,
-                           item.type
+                           item.type,
+                           item.country
                         )
                      }>
-                     <h1>{item.type}</h1>
-                     <img src={item.imgSrc} alt='' />
+                     <div className='cont'>
+                        <img src={item.imgSrc} alt='' />
+                        <h1>{item.title}</h1>
+                     </div>
                   </div>
                ) : null}
 
@@ -30,14 +33,14 @@ function SingleImage({ posts, selectedPhoto, selectedCategory }) {
                            item.imgSrc,
                            item.id,
                            item.title,
-                           item.type
+                           item.type,
+                           item.country
                         )
                      }>
-                     <h1>{item.type}</h1>
                      <img src={item.imgSrc} alt='' />
                   </div>
                ) : null}
-            </div>
+            </>
          ))}
       </div>
    );
