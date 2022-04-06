@@ -18,10 +18,8 @@ function SingleImage({ posts, selectedPhoto, selectedCategory }) {
                            item.country
                         )
                      }>
-                     <div className='cont'>
-                        <img src={item.imgSrc} alt='' />
-                        <h1>{item.title}</h1>
-                     </div>
+                     <img src={item.imgSrc} alt='' />
+                     <h1>{item.title}</h1>
                   </div>
                ) : null}
 
@@ -38,6 +36,7 @@ function SingleImage({ posts, selectedPhoto, selectedCategory }) {
                         )
                      }>
                      <img src={item.imgSrc} alt='' />
+                     <h1>{item.title}</h1>
                   </div>
                ) : null}
             </>
