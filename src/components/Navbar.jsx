@@ -6,10 +6,10 @@ function Navbar() {
       <nav>
          <div className='top-bar'>"Art is never finished, only abandoned."</div>
          <div className='logo'>
-            <h1>Voytashek</h1>
-            <div className='elo'>
-               <h2 className='text-shadow-pop-top'>{"Photo & Art"}</h2>
-            </div>
+            <a href='/'>
+               <h1>Voytashek</h1>
+            </a>
+            <h2 className='text-shadow-pop-top'>{"Photo & Art"}</h2>
          </div>
       </nav>
    );

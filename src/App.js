@@ -372,7 +372,7 @@ function App() {
    const [selectedCountry, setSelectedCountry] = useState("");
    const [selectedCategory, setselectedCategory] = useState("all");
 
-   const [postsPerPage, setPostsPerPage] = useState(20);
+   const [postsPerPage, setPostsPerPage] = useState(15);
 
    const numberOfPostsToDisplay = posts.slice(0, postsPerPage);
 
@@ -400,7 +400,13 @@ function App() {
    };
 
    const showMorePosts = () => {
-      setPostsPerPage((postsPerPage) => postsPerPage + 5);
+      if (postsPerPage <= 44) {
+         setPostsPerPage((postsPerPage) => postsPerPage + 5);
+      } else if (postsPerPage === 45) {
+         setPostsPerPage((postsPerPage) => postsPerPage + 1);
+      } else if (postsPerPage === 46) {
+         document.querySelector(".nomore").classList.add("show");
+      }
    };
 
    // const movePage = (img) => {
@@ -444,7 +450,7 @@ function App() {
                className={"btn"}
             />
             <Button
-               title={"Digital"}
+               title={"iPhone"}
                onClick={setCategory}
                category={"digital"}
                className={"btn"}
@@ -481,9 +487,18 @@ function App() {
                title={"Show More"}
                onClick={showMorePosts}
             />
+            <h1>
+               <span> {postsPerPage} </span>items of{" "}
+               <span>{posts.length} </span>
+               items
+            </h1>
+
+            <div className='nomore slide-out-bck-center'>
+               There is no more new items
+            </div>
          </div>
          <footer>
-            <h1>Voytashek </h1>
+            <h1>voytashek.com</h1>
             <h2>All Rights Reserved &copy; 2022</h2>
          </footer>
       </div>
